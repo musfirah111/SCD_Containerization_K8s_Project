@@ -1,0 +1,29 @@
+### Generate Invoice
+POST http://localhost:5000/api/billing/invoice/generate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjVhNmExNTc5NjUyNjk2ODI0OCIsImlhdCI6MTczMzMxMDA0MiwiZXhwIjoxNzM1OTAyMDQyfQ.vhJEMJDqLFsXdOmm0mVvfl43mxCvDTppfnphTWvt5Q0
+Content-Type: application/json
+
+{
+    "patientId": "67503b48bb481a21276f35a4",
+    "appointmentId": "675329d8634de21744926e54",
+    "totalAmount": 1500,
+    "dueDate": "2024-03-30"
+}
+
+### Download Invoice
+GET http://localhost:5000/api/billing/download/67508b84226370e7a2fd482f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNmY0NmExNTc5NjUyNjk2ODI1MSIsImlhdCI6MTczMzMxMDE5NiwiZXhwIjoxNzM1OTAyMTk2fQ.mRrTUnf1hcD5bDo1z9gsLzdQLN1db1P3YKf59kh0V-8 
+
+
+### Pay Bill (Process Payment for Open Invoice)
+POST http://localhost:5000/api/billing/pay
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNmY0NmExNTc5NjUyNjk2ODI1MSIsImlhdCI6MTczMzMxMDE5NiwiZXhwIjoxNzM1OTAyMTk2fQ.mRrTUnf1hcD5bDo1z9gsLzdQLN1db1P3YKf59kh0V-8
+Content-Type: application/json
+
+{
+    "invoiceId": "67532ac4a0be5c36301093a4"
+}
+
+### Verify Invoice Status After Payment
+GET http://localhost:5000/api/billing/download/67532ac4a0be5c36301093a4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNmY0NmExNTc5NjUyNjk2ODI1MSIsImlhdCI6MTczMzMxMDE5NiwiZXhwIjoxNzM1OTAyMTk2fQ.mRrTUnf1hcD5bDo1z9gsLzdQLN1db1P3YKf59kh0V-8

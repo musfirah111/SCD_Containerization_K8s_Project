@@ -1,0 +1,71 @@
+### Create Lab Test Report
+POST http://localhost:5000/api/lab-reports
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzY1MTQ2NywiZXhwIjoxNzM2MjQzNDY3fQ.YoC_wUZlGcxZqDJ54pyIt4qOPGL4Z_HgnBGIXFGq_GQ
+Content-Type: application/json
+
+{
+    "patient_id": "6753637cf0fb6ac17272fb7d",
+    "doctor_id": "6750ae1ebb5819c52ef40704",
+    "test_name": "Blood Test",
+    "result": "Normal"
+}
+
+### Create Lab Test Report
+POST http://localhost:5000/api/lab-reports
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzYTY4MDhmYmM3Y2NjYzIxMjFhNyIsImlhdCI6MTczMzU1NDAyMiwiZXhwIjoxNzM2MTQ2MDIyfQ.SH2WaV-_49FXglF13AulS52fU6Vb2I8bvRBTZAHqoiA
+Content-Type: application/json
+
+{
+    "patient_id": "675410a39ecbbda6b8d767a5",
+    "doctor_id": "6750afac6dd96e12b38b5ea1",
+    "test_name": "Nuerology Test",
+    "test_date": "2024-03-20",
+    "result": "Normal"
+}
+
+### Daily Registrations
+GET http://localhost:5000/api/lab-reports/daily-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Weekly Registrations
+GET http://localhost:5000/api/lab-reports/weekly-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Monthly Registrations
+GET http://localhost:5000/api/lab-reports/monthly-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Get Lab Test Report by ID
+GET http://localhost:5000/api/lab-reports/6750ae82bb5819c52ef40709
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzM0MDc0MSwiZXhwIjoxNzM1OTMyNzQxfQ.qLPKMl3HBgiuwQnR9_l1mdTobqzk_WtwqEa65w7DS9o
+
+### Search Reports by Patient ID
+GET http://localhost:5000/api/lab-reports/patient/67503a99079109bd4cef37be
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzM0MDc0MSwiZXhwIjoxNzM1OTMyNzQxfQ.qLPKMl3HBgiuwQnR9_l1mdTobqzk_WtwqEa65w7DS9o
+
+### Test searchReportsByName
+GET http://localhost:5000/api/lab-reports/search?name=Blood%20Test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzM0MDc0MSwiZXhwIjoxNzM1OTMyNzQxfQ.qLPKMl3HBgiuwQnR9_l1mdTobqzk_WtwqEa65w7DS9o
+Content-Type: application/json
+
+### Test downloadReport
+GET http://localhost:5000/api/lab-reports/download/6750ae82bb5819c52ef40709
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzM0MDc0MSwiZXhwIjoxNzM1OTMyNzQxfQ.qLPKMl3HBgiuwQnR9_l1mdTobqzk_WtwqEa65w7DS9o
+Content-Type: application/json
+Content-Disposition: attachment; filename="report_6750ae82bb5819c52ef40709.pdf"
+
+### Test shareReport
+POST http://localhost:5000/api/lab-reports/share/6750ae82bb5819c52ef40709
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzM0MDc0MSwiZXhwIjoxNzM1OTMyNzQxfQ.qLPKMl3HBgiuwQnR9_l1mdTobqzk_WtwqEa65w7DS9o
+Content-Type: application/json
+
+{
+    "email": "fatimarathore2018@gmail.com"
+}
+
+### Get Lab Reports By Patient ID
+GET http://localhost:5000/api/lab-reports/patient/6750af7e6dd96e12b38b5e93/reports
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzYjIxMDhmYmM3Y2NjYzIxMjFjYiIsImlhdCI6MTczMzU1NTIxMCwiZXhwIjoxNzM2MTQ3MjEwfQ.cOBEzlzmgaUhAZ0k979FR-gvfHSjDrv6Hs15Z65fngQ

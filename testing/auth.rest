@@ -1,0 +1,95 @@
+### Register User
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Noor Fatima",
+    "email": "patient@gmail.com",
+    "password": "patient123",
+    "role": "Patient",
+    "age": 38,
+    "gender": "Female",
+    "phone_number": "03211274567"
+}
+
+### Register User
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Dr. Shahzad",
+    "email": "shahzad@gmail.com",
+    "password": "shahzad123",
+    "role": "Doctor",
+    "age": 37,
+    "gender": "Male",
+    "phone_number": "03151574567"
+}
+
+### Register Admin
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "admin123",
+    "role": "Admin",
+    "age": 37,
+    "gender": "Male",
+    "phone_number": "03151574567"
+}
+
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "admin123"
+}
+
+### Login User
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "fatimarathore2018@gmail.com",
+    "password": "password123"
+}
+
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Get User Profile
+GET http://localhost:5000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNTc2NTZmZGYyMmRjYWQ5NGRjYSIsImlhdCI6MTczMzMwOTgxNCwiZXhwIjoxNzM1OTAxODE0fQ.Gk1WAb7ziXFbhD-kBL6Y5LgzWO-mHfMplcX0mhGBg2w
+
+
+### Get Notifications
+GET http://localhost:5000/api/appointments/notifications/675434cefb2d19b713e97445
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQzNGNlZmIyZDE5YjcxM2U5NzQ0NSIsImlhdCI6MTczMzU4NTE2MywiZXhwIjoxNzM2MTc3MTYzfQ.OuMZNwiUJWfGp7zbGdUskpUnSqrX5oOVwwoEYEsneNM
+
+### Update User Profile
+PUT http://localhost:5000/api/users/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzU5NzE1NiwiZXhwIjoxNzM2MTg5MTU2fQ.zPY9Hthwbp28-dFT4fmhE5hp-SG5Nx5qpcPq5Yf1WW4
+
+{
+    "password": "thispassword123" 
+}
+
+### Update User Profile Picture
+PUT http://localhost:5000/api/users/6750783291dcace6a5837f1f/profile-picture
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjVhNmExNTc5NjUyNjk2ODI0OCIsImlhdCI6MTczMzMxMDA0MiwiZXhwIjoxNzM1OTAyMDQyfQ.vhJEMJDqLFsXdOmm0mVvfl43mxCvDTppfnphTWvt5Q0
+Content-Type: application/json
+
+{
+    "profile_picture": "https://img.freepik.com/free-photo/young-bearded-male-doctor-wearing-white-coat-with-stethoscope-loking-camera-with-serious-face_141793-28200.jpg?t=st=1733698578~exp=1733702178~hmac=066fa0f8ce75edabb1e503858ba37d086c9c9489e1db4894637751a9cad56c29&w=826"
+}

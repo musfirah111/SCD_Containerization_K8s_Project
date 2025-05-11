@@ -1,0 +1,60 @@
+GET http://localhost:5000/api/doctors
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ3YjQxNWE3N2I5ZGE5MTQ2ODRmMSIsImlhdCI6MTczMzU4OTgyNSwiZXhwIjoxNzM2MTgxODI1fQ.sQa7a20RKBBnH05wIm0jRNLUZANT-ghtlFFz-d3-A-k
+Content-Type: application/json
+
+### Get Doctor by ID
+GET http://localhost:5000/api/doctors/67547b9e5a77b9da914684fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ3YjQxNWE3N2I5ZGE5MTQ2ODRmMSIsImlhdCI6MTczMzU4OTgyNSwiZXhwIjoxNzM2MTgxODI1fQ.sQa7a20RKBBnH05wIm0jRNLUZANT-ghtlFFz-d3-A-k
+
+
+
+### Create Doctor
+POST http://localhost:5000/api/doctors
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNTc2NTZmZGYyMmRjYWQ5NGRjYSIsImlhdCI6MTczMzY4NzU4MCwiZXhwIjoxNzM2Mjc5NTgwfQ.CCTYozy8YBdQa4AEodoQRyzX8zz0oSc22YH_dYnVrQg
+Content-Type: application/json
+
+{
+    "user_id": "6755f94d0be2aef1888f4092",
+    "specialization": "Viral Disease Specialist",
+    "qualification": ["MBBS", "MD Viral Disease"],
+    "description": "Dr. Shahzad is a compassionate viral disease specialist who has dedicated his career to children's healthcare. He has extensive experience in treating various viral diseases and is known for his gentle approach.",
+    "department_id": "67543352caf1c6a1dd2cdc2f",
+    "shift": "Evening",
+    "working_hours": "3PM-11PM",
+    "availability_status": true,
+    "experience": 10,
+    "consultation_fee": 1000,
+    "date_of_joining": "2022-03-15"
+}
+
+### Get Daily Schedule
+GET http://localhost:5000/api/doctors/schedule/daily?doctor_id=675039e1bb481a21276f3590&date=2024-03-20
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzYwNTM0NSwiZXhwIjoxNzM2MTk3MzQ1fQ._MKOV2uCzmX3SrJTqpFsUx-DzbPhQ5JA1V6ymT_dSeg
+
+### Get Weekly Schedule
+GET http://localhost:5000/api/doctors/schedule/weekly?doctor_id=675039e1bb481a21276f3590
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNzQ5NmExNTc5NjUyNjk2ODI1NyIsImlhdCI6MTczMzMxMDI4MSwiZXhwIjoxNzM1OTAyMjgxfQ.HdCrILiR1rieALWfs5C6fod3S11CFZ1D8D_H4ac6n3k
+
+
+### Get Doctor's Schedule for a specific date
+GET http://localhost:5000/api/doctors/6750ae1ebb5819c52ef40704/schedule/2024-12-08
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzY0MjA2OCwiZXhwIjoxNzM2MjM0MDY4fQ.d1amooeQ4cvbom_bfBKHFEylntIblnbjCPAiirptMiA
+Content-Type: application/json
+
+### Update Doctor's Experience
+PATCH http://localhost:5000/api/doctors/6750790c91dcace6a5837f2b/experience
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ3YjQxNWE3N2I5ZGE5MTQ2ODRmMSIsImlhdCI6MTczMzU4OTgyNSwiZXhwIjoxNzM2MTgxODI1fQ.sQa7a20RKBBnH05wIm0jRNLUZANT-ghtlFFz-d3-A-k
+Content-Type: application/json
+
+{
+    "experience": 15
+}
+
+### Update Doctor's Consultation Fee
+PUT http://localhost:5000/api/doctors/6750790c91dcace6a5837f2b/consultation-fee
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ3YjQxNWE3N2I5ZGE5MTQ2ODRmMSIsImlhdCI6MTczMzU4OTgyNSwiZXhwIjoxNzM2MTgxODI1fQ.sQa7a20RKBBnH05wIm0jRNLUZANT-ghtlFFz-d3-A-k
+Content-Type: application/json
+
+{
+    "consultation_fee": 1600
+}

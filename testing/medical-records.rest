@@ -1,0 +1,24 @@
+### Create Medical Record
+POST http://localhost:5000/api/medical-records
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTA0NDJlMTJlMzE1YmVhMzZkMmQ0YSIsImlhdCI6MTczMzY2MDY4MiwiZXhwIjoxNzM2MjUyNjgyfQ.YbjthVG84NNP5HHDrVH9FNW0x80O2N_IvUzlr7ZKvw4
+Content-Type: application/json
+
+{
+    "patient_id": "6750af7e6dd96e12b38b5e93",
+    "doctor_id": "6750ae1ebb5819c52ef40704",
+    "diagnosis": "Patient diagnosis",
+    "treatment": ["6750afc76dd96e12b38b5ea6"]
+}
+
+### Get Medical Record by ID
+GET http://localhost:5000/api/medical-records/RECORD_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Search Records by Patient
+GET http://localhost:5000/api/medical-records/patient/6750af7e6dd96e12b38b5e93
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzYTY4MDhmYmM3Y2NjYzIxMjFhNyIsImlhdCI6MTczMzU2OTQxNSwiZXhwIjoxNzM2MTYxNDE1fQ.jnjW03XHhx2IM6hH3Saje2oJOpZUW3XYZG_wrVcCkHk
+
+
+### Search Records by Doctor
+GET http://localhost:5000/api/medical-records/doctor/67547b9e5a77b9da914684fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ3YjQxNWE3N2I5ZGE5MTQ2ODRmMSIsImlhdCI6MTczMzY0OTk1NywiZXhwIjoxNzM2MjQxOTU3fQ.GkbEyJVvauPnLd10HfB1Cp_xjKutNZT0n_xlzXXRcbQ

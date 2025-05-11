@@ -1,0 +1,72 @@
+### Add Patient
+POST http://localhost:5000/api/patients
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNTc2NTZmZGYyMmRjYWQ5NGRjYSIsImlhdCI6MTczMzU2MjUxMiwiZXhwIjoxNzM2MTU0NTEyfQ.xdrUwDBLkdCBix6yQ6wgtNyzqTO1e0hDziF1NbT9POM
+Content-Type: application/json
+
+{
+    "user_id": "67540fd49ecbbda6b8d7679a",
+    "address": "123 Test Street, City",
+    "emergency_contact": {
+        "name": "Emergency Contact",
+        "phone": "03001234567",
+        "relationship": "Parent"
+    }
+}
+
+### Get Patient Details
+GET http://localhost:5000/api/patients/67503a99079109bd4cef37be
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+
+### Search Doctors
+GET http://localhost:5000/api/patients/search?name=Doctor&department=Cardiology
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+
+
+### Update Patient
+PUT http://localhost:5000/api/patients/67503b48bb481a21276f35a4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+{
+    "address": "456 Updated Street, New City",
+    "emergency_contact": {
+        "name": "New Emergency Contact",
+        "phone": "03009876543",
+        "relationship": "Sibling"
+    }
+}
+
+### Delete Patient
+DELETE http://localhost:5000/api/patients/67503b48bb481a21276f35a4
+Authorization: Bearer token
+
+
+### Request Appointment Cancellation
+POST http://localhost:5000/api/patients/cancel-request
+Authorization: Bearer token
+Content-Type: application/json
+
+{
+    "appointment_id": "YOUR_APPOINTMENT_ID",
+    "cancellation_reason": "Unable to attend due to emergency"
+}
+
+### Daily Registrations
+GET http://localhost:5000/api/patients/daily-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Weekly Registrations
+GET http://localhost:5000/api/patients/weekly-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Monthly Registrations
+GET http://localhost:5000/api/patients/monthly-registrations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNjBhYjE2YTM2ZjZjZjg5Y2YwNiIsImlhdCI6MTczMzQxNTc4OCwiZXhwIjoxNzM2MDA3Nzg4fQ.FWzlVfCuxEUz5zXA8bUYc4IsqcVQHVU7gRSke-fg_I4
+Content-Type: application/json
+
+### Get all patients
+GET http://localhost:5000/api/patients
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNTc2NTZmZGYyMmRjYWQ5NGRjYSIsImlhdCI6MTczMzY3MTQ4MywiZXhwIjoxNzM2MjYzNDgzfQ.7hMDAqNNqXVhb8Ut0oWKRCjQWrR_eWLSa8D7LOs60KU
+Content-Type: application/json

@@ -1,0 +1,49 @@
+### Initialize Chat (Doctor)
+# This will create a Stream Chat token for the doctor
+POST http://localhost:5000/api/communication/initialize
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNzQ5NmExNTc5NjUyNjk2ODI1NyIsImlhdCI6MTczMzMxMDI4MSwiZXhwIjoxNzM1OTAyMjgxfQ.HdCrILiR1rieALWfs5C6fod3S11CFZ1D8D_H4ac6n3k
+Content-Type: application/json
+
+{
+    "userId": "675039e1bb481a21276f3590",
+    "userType": "doctor",
+    "name": "Rizma Zunnoon" 
+}
+
+### Initialize Chat (Patient)
+# This will create a Stream Chat token for the patient
+POST http://localhost:5000/api/communication/initialize
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNmY0NmExNTc5NjUyNjk2ODI1MSIsImlhdCI6MTczMzMxMDE5NiwiZXhwIjoxNzM1OTAyMTk2fQ.mRrTUnf1hcD5bDo1z9gsLzdQLN1db1P3YKf59kh0V-8
+Content-Type: application/json
+
+{
+    "userId": "67503b48bb481a21276f35a4",
+    "userType": "patient",
+    "name": "Fatima Rathore"
+}
+
+### Create Channel
+# This creates a messaging channel between doctor and patient
+POST http://localhost:5000/api/communication/channel
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNzQ5NmExNTc5NjUyNjk2ODI1NyIsImlhdCI6MTczMzMxMDI4MSwiZXhwIjoxNzM1OTAyMjgxfQ.HdCrILiR1rieALWfs5C6fod3S11CFZ1D8D_H4ac6n3k
+Content-Type: application/json
+
+{
+    "doctorId": "675039e1bb481a21276f3590",
+    "patientId": "67503b48bb481a21276f35a4",
+    "channelName": "Medical Consultation"
+}
+
+### Delete Channel
+# This deletes an existing channel
+DELETE http://localhost:5000/api/communication/channel
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNzQ5NmExNTc5NjUyNjk2ODI1NyIsImlhdCI6MTczMzMxMDI4MSwiZXhwIjoxNzM1OTAyMjgxfQ.HdCrILiR1rieALWfs5C6fod3S11CFZ1D8D_H4ac6n3k
+Content-Type: application/json
+
+{
+    "channelId": "675039e1bb481a21276f3590-67503b48bb481a21276f35a4"
+}
+
+### Get Channel (Optional - to verify channel exists)
+GET http://localhost:5000/api/communication/channel/675039e1bb481a21276f3590-67503b48bb481a21276f35a4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTAzNzQ5NmExNTc5NjUyNjk2ODI1NyIsImlhdCI6MTczMzMxMDI4MSwiZXhwIjoxNzM1OTAyMjgxfQ.HdCrILiR1rieALWfs5C6fod3S11CFZ1D8D_H4ac6n3k
