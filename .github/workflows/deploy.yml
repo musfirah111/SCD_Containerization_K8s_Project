@@ -13,11 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Docker to use Minikube's Docker daemon (Windows)
-      shell: powershell
+    - name: Set up Docker to use Minikube's Docker daemon
       run: |
         echo "Switching Docker to use Minikube's environment..."
-        & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+        & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env | Invoke-Expression
+
 
     - name: Build backend image
       shell: powershell
