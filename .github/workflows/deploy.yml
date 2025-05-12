@@ -13,12 +13,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Docker to use Minikube's Docker daemon
+    - name: Set Docker environment for Minikube
+      shell: powershell
       run: |
-        # Temporarily bypass execution policy for the current session
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-        echo "Switching Docker to use Minikube's environment..."
-        & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env | Invoke-Expression
+        Write-Host "Setting Docker environment to Minikube's Docker daemon manually..."
+        $envVars = & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env --shell powershell
+        foreach ($line in $envVars) {
+          if ($line -match '^\$Env:([^=]+)\s*=\s*"([^"]+)"') {
+            $key = $matches[1]
+            $value = $matches[2]
+            Write-Host "Setting $key..."
+            [System.Environment]::SetEnvironmentVariable($key, $value, "Process")
+          }
+        }
 
     - name: Build backend image
       shell: powershell
@@ -43,9 +50,9 @@ jobs:
     - name: Deploy to Minikube
       shell: powershell
       run: |
+        kubectl apply -f k8s/mongo-deployment.yaml
+        kubectl apply -f k8s/mongo-service.yaml
         kubectl apply -f k8s/backend-deployment.yaml
         kubectl apply -f k8s/backend-service.yaml
         kubectl apply -f k8s/frontend-deployment.yaml
         kubectl apply -f k8s/frontend-service.yaml
-        kubectl apply -f k8s/mongo-deployment.yaml
-        kubectl apply -f k8s/mongo-service.yaml
