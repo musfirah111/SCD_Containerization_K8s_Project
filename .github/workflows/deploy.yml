@@ -27,7 +27,7 @@ jobs:
           }
         }
     
-    - name: Verify Docker is using Minikube's Docker daemon
+    - name: Verify Docker is using Minikube's Docker daemon or not
       shell: powershell
       run: |
         Write-Host "Verifying Docker is using Minikube's Docker daemon..."
