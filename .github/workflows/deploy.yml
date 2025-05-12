@@ -13,27 +13,34 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Docker to use Minikube's Docker daemon
+    - name: Set up Docker to use Minikube's Docker daemon (Windows)
+      shell: powershell
       run: |
         echo "Switching Docker to use Minikube's environment..."
-        eval $(minikube docker-env)
+        & minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
     - name: Build backend image
+      shell: powershell
       run: docker build -t musfirah1/hms_backend:latest ./backend
 
     - name: Build frontend image
+      shell: powershell
       run: docker build -t musfirah1/hms_frontend:latest ./frontend
 
     - name: Login to Docker Hub
+      shell: powershell
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: Push backend image
+      shell: powershell
       run: docker push musfirah1/hms_backend:latest
 
     - name: Push frontend image
+      shell: powershell
       run: docker push musfirah1/hms_frontend:latest
 
     - name: Deploy to Minikube
+      shell: powershell
       run: |
         kubectl apply -f k8s/backend-deployment.yaml
         kubectl apply -f k8s/backend-service.yaml
