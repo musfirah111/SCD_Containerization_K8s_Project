@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo
-  namespace: my-namespace
+  namespace: scd-namespace
 spec:
   replicas: 1
   selector:

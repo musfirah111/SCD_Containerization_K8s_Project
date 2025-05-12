@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo
-  namespace: my-namespace
+  namespace: scd-namespace
 spec:
   selector:
     app: mongo

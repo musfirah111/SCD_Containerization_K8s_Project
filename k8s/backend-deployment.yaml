@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: my-namespace
+  namespace: scd-namespace
 spec:
   replicas: 2
   selector:
@@ -15,14 +15,9 @@ spec:
     spec:
       containers:
       - name: backend
-        image: fatimarathore2018/backend_hospital_management_system:latest
+        image: musfirah1/hms_backend:latest
         ports:
         - containerPort: 5000
         env:
         - name: MONGO_URI
           value: mongodb://mongo:27017/OasisHospitalManagementSystem
-        - name: PORT
-          value: "5000"
-        envFrom:
-        - secretRef:
-            name: backend-secrets
