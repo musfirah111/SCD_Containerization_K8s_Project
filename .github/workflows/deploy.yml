@@ -13,19 +13,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set Docker environment for Minikube
+    - name: Set Docker environment for Minikube (Windows-safe)
       shell: powershell
       run: |
-        Write-Host "Setting Docker environment to Minikube's Docker daemon manually..."
-        $envVars = & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env --shell powershell
-        foreach ($line in $envVars) {
+        Write-Host "Switching Docker to use Minikube's environment..."
+        $envOutput = & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env --shell powershell
+        foreach ($line in $envOutput) {
           if ($line -match '^\$Env:([^=]+)\s*=\s*"([^"]+)"') {
-            $key = $matches[1]
+            $name = $matches[1]
             $value = $matches[2]
-            Write-Host "Setting $key..."
-            [System.Environment]::SetEnvironmentVariable($key, $value, "Process")
+            Write-Host "Setting $name=$value"
+            [System.Environment]::SetEnvironmentVariable($name, $value, "Process")
           }
         }
+    
+    - name: Verify Docker is using Minikube's Docker daemon
+      shell: powershell
+      run: |
+        Write-Host "Verifying Docker is using Minikube's Docker daemon..."
+        docker info | Select-String "Name|Server Version|Operating System|Docker Root Dir"
+
 
     - name: Build backend image
       shell: powershell
