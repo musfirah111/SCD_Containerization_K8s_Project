@@ -15,8 +15,10 @@ jobs:
 
     - name: Set up Docker to use Minikube's Docker daemon
       run: |
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
         echo "Switching Docker to use Minikube's environment..."
         & "C:\Program Files\Kubernetes\Minikube\minikube.exe" docker-env | Invoke-Expression
+
 
 
     - name: Build backend image
