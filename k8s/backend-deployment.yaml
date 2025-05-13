@@ -21,3 +21,6 @@ spec:
         env:
         - name: MONGO_URI
           value: mongodb://mongo:27017/OasisHospitalManagementSystem
+        envFrom:
+        - secretRef:
+            name: backend-secrets
